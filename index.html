@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中国银行</title>
+    <link type="text/css"  rel="stylesheet" href="font/iconfont.css">
+    <link type="text/css"  rel="stylesheet" href="css/swiper.min.css">
+    <link type="text/css"  rel="stylesheet" href="css/style.css">
+    <!-- <link type="text/css"  rel="stylesheet" href="js/jquery-1.7.1.js"> -->
+</head>
+<body>
+    <header>
+        <p>
+            <img src="images/img-animal.png" alt="images/img-animal">
+            <a href="">中国农业银行</a>
+        </p>
+        <p></p>
+        <p>
+            <i class="icon iconfont icon-fangdajing"></i>
+            <i class="icon iconfont icon-shanchu"></i>
+        </p>
+    </header>
+    <section>
+        <div class="section swiper-container">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide">
+					<img src="images/img-jingone.jpg" alt="images/img-jingone">
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img-jingtwo.jpg" alt="images/img-jingtwo">
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img-jingthree.jpg" alt="images/img-jingthree">
+                </li>
+                <li class="swiper-slide">
+					<img src="images/img-jingfour.jpg" alt="images/img-jingtwo">
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img-jingfive.jpg" alt="images/img-jingthree">
+				</li>
+			</ul>
+			<div class="swiper-pagination"></div>
+        </div>
+        <div class="section_list">
+            <p>
+                <i class="icon iconfont icon-shoucang"></i>
+                 <a href="#">全国--刷农行银联白金卡,6积分...</a> 
+                <b>2017-12-01</b>
+            </p>
+            <p>
+                <i class="icon iconfont icon-tongzhi"></i>
+                <a href="#">全国--刷农行银联白金卡,6积分...</a>
+                <b>2017-12-01</b>
+            </p>
+        </div>
+        <div class="section_server">
+            <h3>便捷服务</h3>
+            <div class="section_server_dl">
+                <dl>
+                    <dt><i class="icon iconfont icon-weixin" style="color:lightgreen"></i></dt>
+                    <dd>掌上银行下载</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-qq" style="color:orange"></i></dt>
+                    <dd>行情数据</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-taobao"></i></dt>
+                    <dd>图说农行</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-xinlang" style="color:lightblue"></i></dt>
+                    <dd>营业机构下载</dd>
+                </dl>
+                <dl>
+                    <dt style="background:greenyellow"><i class="icon iconfont icon-shanchu" style="color:#fff"></i></dt>
+                    <dd>掌上银行下载</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-tongzhi"></i></dt>
+                    <dd>行情数据</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-zhihu"></i></dt>
+                    <dd>图说农行</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-shoucang"></i></dt>
+                    <dd>营业机构下载</dd>
+                </dl>
+            </div> 
+        </div>
+        <div class="section_ulist" id="section_ulist">
+            <!-- <h3>您的每段旅程，我们全新陪伴</h3>
+            <ul>
+                <li>学生时代</li>
+                <li>职场生涯</li>
+                <li>品质家庭</li>
+            </ul> -->
+        </div>
+    </section>
+    <footer></footer>
+</body>
+</html>
+<script src="js/jquery-1.7.1.js"></script>
+<script type='text/javascript' src='swiper/swiper.min.js'></script>
+<script type='text/javascript'>
+    new Swiper(".swiper-container",{
+        pagination:".swiper-pagination",
+        paginationClickable:true,
+        autoplay:1500
+    })
+    
+</script>
+ <script>
+        // function ajax(url){
+        //     return new Promise(function(resolve,reject){
+        //         var xhr = null;
+        //         var handler = function(){
+        //             if(xhr.readyState !== 4) return;
+        //             if(xhr.status === 200){
+        //                 resolve(xhr.responseText)
+        //             }else{
+        //                 reject(new Error(xhr.statusText))
+        //             }
+        //         }
+        //         if(xhr.XMLHttpRequest){
+        //             xhr = new XMLHttpRequest();
+        //         }else{
+        //             xhr = new ActiveXObject("Microsoft.XMLHTTP")
+        //         }
+        //         xhr.open("GET",url,true);
+        //         xhr.send();
+        //         xhr.onreadystatechange = handler;
+        //     })
+        // }
+        // ajax("http://localhost:9999/indexHtml").then(function(result){
+        //     console.log(result);
+        // }).catch(function(error){ 
+        //     alert("error");
+        // })
+        function ajax(url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = null;
+            var handler = function () {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status == 200) {
+                    resolve(xhr.responseText)
+                } else {
+                    reject(new Error(xhr.statusText));
+                }
+            }
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xhr.open("GET", url, true);
+            xhr.send();
+            xhr.onreadystatechange = handler;
+        })
+    }
+    ajax("http://localhost:9999/indexHtml").then(function (result) {
+        // console.log(result);
+        //     <h3>您的每段旅程，我们全新陪伴</h3>
+        //     <ul>
+        //         <li>学生时代</li>
+        //         <li>职场生涯</li>
+        //         <li>品质家庭</li>
+        //     </ul> 
+        var obj = JSON.parse(result);
+        var str = `<h3>${obj[0].h3_server}</h3>
+            <ul>
+                <li>${obj[1].dl1}</li>
+                <li>${obj[1].dl2}</li>
+                <li>${obj[1].dl3}</li>
+            </ul> `;
+        $("#section_ulist").html(str)
+    }).catch(function (error) {
+        console.log(error)
+    });
+</script> 
